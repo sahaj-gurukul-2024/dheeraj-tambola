@@ -15,6 +15,7 @@ class Tambola {
             Claim.BOTTOM_ROW -> setClaimValidator(BottomRowClaimValidator())
             Claim.MIDDLE_ROW -> setClaimValidator(MiddleRowClaimValidator())
             Claim.EARLY_FIVE -> setClaimValidator(EarlyFiveClaimValidator())
+            Claim.FULL_HOUSE -> setClaimValidator(FullHouseClaimValidator())
         }
 
         return claimValidator!!.validate(ticket, announcedNumbers, claim)
