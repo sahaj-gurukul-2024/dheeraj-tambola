@@ -1,9 +1,6 @@
 package org.example
 
-import org.example.validator.BottomRowClaimValidator
-import org.example.validator.ClaimValidator
-import org.example.validator.EarlyFiveClaimValidator
-import org.example.validator.TopRowClaimValidator
+import org.example.validator.*
 
 class Tambola {
 
@@ -16,6 +13,7 @@ class Tambola {
         when(claim) {
             Claim.TOP_ROW -> setClaimValidator(TopRowClaimValidator())
             Claim.BOTTOM_ROW -> setClaimValidator(BottomRowClaimValidator())
+            Claim.MIDDLE_ROW -> setClaimValidator(MiddleRowClaimValidator())
             Claim.EARLY_FIVE -> setClaimValidator(EarlyFiveClaimValidator())
         }
 

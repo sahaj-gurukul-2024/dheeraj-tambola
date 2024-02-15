@@ -71,6 +71,38 @@ class ClaimValidationTest {
     }
 
     @Test
+    fun `check if middle row wins`() {
+        val ticket = listOf(
+            listOf(4,16,-1,-1,48,-1,63,76,-1),
+            listOf(7,-1,23,38,-1,52,-1,-1,80),
+            listOf(9,-1,25,-1,-1,56,64,-1,83)
+        )
+        val announcedNumbers = listOf(7, 23, 46, 52, 89, 80, 76, 38)
+        val claim = Claim.MIDDLE_ROW
+        val tambola = Tambola()
+
+        val result = tambola.validateClaim(ticket, announcedNumbers, claim)
+
+        assertTrue(result)
+    }
+
+    @Test
+    fun `check if middle row loses`() {
+        val ticket = listOf(
+            listOf(4,16,-1,-1,48,-1,63,76,-1),
+            listOf(7,-1,23,38,-1,52,-1,-1,80),
+            listOf(9,-1,25,-1,-1,56,64,-1,83)
+        )
+        val announcedNumbers = listOf(7, 23, 46, 42, 89, 80, 76, 38)
+        val claim = Claim.MIDDLE_ROW
+        val tambola = Tambola()
+
+        val result = tambola.validateClaim(ticket, announcedNumbers, claim)
+
+        assertFalse(result)
+    }
+
+    @Test
     fun `check if early five wins`() {
         val ticket = listOf(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
