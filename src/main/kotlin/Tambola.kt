@@ -14,18 +14,9 @@ class Tambola {
     fun validateClaim(ticket: List<List<Int>>, announcedNumbers: List<Int>, claim: Claim): Boolean {
 
         when(claim) {
-            Claim.TOP_ROW -> {
-                setClaimValidator(TopRowClaimValidator())
-            }
-            Claim.BOTTOM_ROW -> {
-                setClaimValidator(BottomRowClaimValidator())
-            }
-            Claim.EARLY_FIVE -> {
-                setClaimValidator(EarlyFiveClaimValidator())
-            }
-            else -> {
-                throw Exception("Invalid Claim")
-            }
+            Claim.TOP_ROW -> setClaimValidator(TopRowClaimValidator())
+            Claim.BOTTOM_ROW -> setClaimValidator(BottomRowClaimValidator())
+            Claim.EARLY_FIVE -> setClaimValidator(EarlyFiveClaimValidator())
         }
 
         return claimValidator!!.validate(ticket, announcedNumbers, claim)
