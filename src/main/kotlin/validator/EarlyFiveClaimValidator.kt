@@ -5,10 +5,10 @@ import org.example.Claim
 class EarlyFiveClaimValidator: ClaimValidator {
     override fun validate(ticket: List<List<Int>>, announcedNumbers: List<Int>, claim: Claim): Boolean {
         val row = mutableSetOf<Int>()
-        for(i in ticket.indices) {
-            for(j in ticket[i].indices) {
-                if(ticket[i][j] != -1) {
-                    row.add(ticket[i][j])
+        for(firstIndex in ticket.indices) {
+            for(secondIndex in ticket[firstIndex].indices) {
+                if(ticket[firstIndex][secondIndex] != -1) {
+                    row.add(ticket[firstIndex][secondIndex])
                 }
             }
         }

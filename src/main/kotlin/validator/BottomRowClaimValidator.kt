@@ -5,17 +5,17 @@ import org.example.Claim
 class BottomRowClaimValidator : ClaimValidator {
     override fun validate(ticket: List<List<Int>>, announcedNumbers: List<Int>, claim: Claim): Boolean {
         val row = mutableSetOf<Int>()
-        for(i in ticket[ticket.size -1]) {
-            if(i != -1) {
-                row.add(i)
+        for(index in ticket[ticket.size -1]) {
+            if(index != -1) {
+                row.add(index)
             }
         }
         var res = false
-        for(i in announcedNumbers.indices) {
-            if(row.contains(announcedNumbers[i])) {
-                row.remove(announcedNumbers[i])
+        for(index in announcedNumbers.indices) {
+            if(row.contains(announcedNumbers[index])) {
+                row.remove(announcedNumbers[index])
                 if(row.isEmpty()) {
-                    res = i == announcedNumbers.size -1
+                    res = index == announcedNumbers.size -1
                 }
             }
         }
