@@ -65,4 +65,34 @@ class ClaimValidationTest {
 
         assertFalse(result)
     }
+
+    @Test
+    fun `check if early five wins`() {
+        val ticket = listOf(
+            listOf(4,16,-1,-1,48,-1,63,76,-1),
+            listOf(7,-1,23,38,-1,52,-1,-1,80),
+            listOf(9,-1,25,-1,-1,56,64,-1,83)
+        )
+        val announcedNumbers = listOf(4, 3, 9, 56, 64, 100, 80)
+        val claim = Claim.EARLY_FIVE
+
+        val result = validateClaim(ticket, announcedNumbers, claim)
+
+        assertTrue(result)
+    }
+
+    @Test
+    fun `check if early five losses`() {
+        val ticket = listOf(
+            listOf(4,16,-1,-1,48,-1,63,76,-1),
+            listOf(7,-1,23,38,-1,52,-1,-1,80),
+            listOf(9,-1,25,-1,-1,56,64,-1,83)
+        )
+        val announcedNumbers = listOf(4, 3, 9, 56, 64, 100, 80, 77)
+        val claim = Claim.EARLY_FIVE
+
+        val result = validateClaim(ticket, announcedNumbers, claim)
+
+        assertFalse(result)
+    }
 }
