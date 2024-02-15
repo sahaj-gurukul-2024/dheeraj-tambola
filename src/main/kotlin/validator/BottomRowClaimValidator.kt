@@ -14,7 +14,6 @@ class BottomRowClaimValidator : ClaimValidator {
         for(i in announcedNumbers.indices) {
             if(row.contains(announcedNumbers[i])) {
                 row.remove(announcedNumbers[i])
-                println(row)
                 if(row.isEmpty()) {
                     res = i == announcedNumbers.size -1
                 }
