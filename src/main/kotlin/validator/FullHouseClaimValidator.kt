@@ -15,7 +15,6 @@ class FullHouseClaimValidator: ClaimValidator {
         if (row.containsAll(announcedNumbers) && (row.size <= announcedNumbers.size)){
             result = true
         }
-        println(result)
         return result
     }
 }
