@@ -10,16 +10,16 @@ class TopRowClaimValidator : ClaimValidator {
                 row.add(index)
             }
         }
-        var res = false
+        var result = false
         for(index in announcedNumbers.indices) {
             if(row.contains(announcedNumbers[index])) {
                 row.remove(announcedNumbers[index])
                 if(row.isEmpty()) {
-                    res = index == announcedNumbers.size -1
+                    result = index == announcedNumbers.size -1
                 }
             }
         }
 
-        return res
+        return result
     }
 }
