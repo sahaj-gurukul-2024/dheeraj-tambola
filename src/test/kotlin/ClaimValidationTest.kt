@@ -7,7 +7,7 @@ import kotlin.test.assertTrue
 class ClaimValidationTest {
 
     @Test
-    fun `check if top row wins`() {
+    fun `check if top row claim accepted`() {
         val ticket = listOf(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
@@ -23,7 +23,7 @@ class ClaimValidationTest {
     }
 
     @Test
-    fun `check if top row losses`() {
+    fun `check if late top row claim rejected`() {
         val ticket = listOf(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
@@ -39,7 +39,7 @@ class ClaimValidationTest {
     }
 
     @Test
-    fun `check if bottom row wins`() {
+    fun `check if bottom row claim accepted`() {
         val ticket = listOf(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
@@ -55,7 +55,7 @@ class ClaimValidationTest {
     }
 
     @Test
-    fun `check if bottom row losses`() {
+    fun `check if late bottom row claim rejected`() {
         val ticket = listOf(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
@@ -71,7 +71,7 @@ class ClaimValidationTest {
     }
 
     @Test
-    fun `check if middle row wins`() {
+    fun `check if middle row claim accepted`() {
         val ticket = listOf(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
@@ -87,7 +87,7 @@ class ClaimValidationTest {
     }
 
     @Test
-    fun `check if middle row loses`() {
+    fun `check if late middle row claim rejected`() {
         val ticket = listOf(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
@@ -103,7 +103,7 @@ class ClaimValidationTest {
     }
 
     @Test
-    fun `check if early five wins`() {
+    fun `check if early five accepted`() {
         val ticket = listOf(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
@@ -119,7 +119,7 @@ class ClaimValidationTest {
     }
 
     @Test
-    fun `check if early five losses`() {
+    fun `check if late early five claim rejected`() {
         val ticket = listOf(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
