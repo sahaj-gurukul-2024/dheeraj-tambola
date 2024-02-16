@@ -1,5 +1,6 @@
 import org.example.Claim
 import org.example.Tambola
+import org.example.TambolaTicket
 import org.junit.jupiter.api.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
@@ -8,7 +9,7 @@ class ClaimValidationTest {
 
     @Test
     fun `check if top row claim accepted`() {
-        val ticket = listOf(
+        val tambolaTicket = TambolaTicket(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
             listOf(9,-1,25,-1,-1,56,64,-1,83)
@@ -17,14 +18,14 @@ class ClaimValidationTest {
         val claim = Claim.TOP_ROW
         val tambola = Tambola()
 
-        val result = tambola.validateClaim(ticket, announcedNumbers, claim)
+        val result = tambola.validateClaim(tambolaTicket, announcedNumbers, claim)
 
         assertTrue(result)
     }
 
     @Test
     fun `check if late top row claim rejected`() {
-        val ticket = listOf(
+        val tambolaTicket = TambolaTicket(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
             listOf(9,-1,25,-1,-1,56,64,-1,83)
@@ -33,14 +34,14 @@ class ClaimValidationTest {
         val claim = Claim.TOP_ROW
         val tambola = Tambola()
 
-        val result = tambola.validateClaim(ticket, announcedNumbers, claim)
+        val result = tambola.validateClaim(tambolaTicket, announcedNumbers, claim)
 
         assertFalse(result)
     }
 
     @Test
     fun `check if bottom row claim accepted`() {
-        val ticket = listOf(
+        val tambolaTicket = TambolaTicket(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
             listOf(9,-1,25,-1,-1,56,64,-1,83)
@@ -49,14 +50,14 @@ class ClaimValidationTest {
         val claim = Claim.BOTTOM_ROW
         val tambola = Tambola()
 
-        val result = tambola.validateClaim(ticket, announcedNumbers, claim)
+        val result = tambola.validateClaim(tambolaTicket, announcedNumbers, claim)
 
         assertTrue(result)
     }
 
     @Test
     fun `check if late bottom row claim rejected`() {
-        val ticket = listOf(
+        val tambolaTicket = TambolaTicket(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
             listOf(9,-1,25,-1,-1,56,64,-1,83)
@@ -65,14 +66,14 @@ class ClaimValidationTest {
         val claim = Claim.BOTTOM_ROW
         val tambola = Tambola()
 
-        val result = tambola.validateClaim(ticket, announcedNumbers, claim)
+        val result = tambola.validateClaim(tambolaTicket, announcedNumbers, claim)
 
         assertFalse(result)
     }
 
     @Test
     fun `check if middle row claim accepted`() {
-        val ticket = listOf(
+        val tambolaTicket = TambolaTicket(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
             listOf(9,-1,25,-1,-1,56,64,-1,83)
@@ -81,14 +82,14 @@ class ClaimValidationTest {
         val claim = Claim.MIDDLE_ROW
         val tambola = Tambola()
 
-        val result = tambola.validateClaim(ticket, announcedNumbers, claim)
+        val result = tambola.validateClaim(tambolaTicket, announcedNumbers, claim)
 
         assertTrue(result)
     }
 
     @Test
     fun `check if late middle row claim rejected`() {
-        val ticket = listOf(
+        val tambolaTicket = TambolaTicket(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
             listOf(9,-1,25,-1,-1,56,64,-1,83)
@@ -97,14 +98,14 @@ class ClaimValidationTest {
         val claim = Claim.MIDDLE_ROW
         val tambola = Tambola()
 
-        val result = tambola.validateClaim(ticket, announcedNumbers, claim)
+        val result = tambola.validateClaim(tambolaTicket, announcedNumbers, claim)
 
         assertFalse(result)
     }
 
     @Test
     fun `check if early five accepted`() {
-        val ticket = listOf(
+        val tambolaTicket = TambolaTicket(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
             listOf(9,-1,25,-1,-1,56,64,-1,83)
@@ -113,14 +114,14 @@ class ClaimValidationTest {
         val claim = Claim.EARLY_FIVE
         val tambola = Tambola()
 
-        val result = tambola.validateClaim(ticket, announcedNumbers, claim)
+        val result = tambola.validateClaim(tambolaTicket, announcedNumbers, claim)
 
         assertTrue(result)
     }
 
     @Test
     fun `check if late early five claim rejected`() {
-        val ticket = listOf(
+        val tambolaTicket = TambolaTicket(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
             listOf(9,-1,25,-1,-1,56,64,-1,83)
@@ -129,29 +130,29 @@ class ClaimValidationTest {
         val claim = Claim.EARLY_FIVE
         val tambola = Tambola()
 
-        val result = tambola.validateClaim(ticket, announcedNumbers, claim)
+        val result = tambola.validateClaim(tambolaTicket, announcedNumbers, claim)
 
         assertFalse(result)
     }
     @Test
     fun `check if full house claim wins`() {
-        val ticket = listOf(
-            listOf(4,16,-1,-1,48,-1,63,76,-1),
-            listOf(7,-1,23,38,-1,52,-1,-1,80),
-            listOf(9,-1,25,-1,-1,56,64,-1,83)
-        )
+    val tambolaTicket = TambolaTicket(
+        listOf(4,16,-1,-1,48,-1,63,76,-1),
+        listOf(7,-1,23,38,-1,52,-1,-1,80),
+        listOf(9,-1,25,-1,-1,56,64,-1,83)
+    )
         val announcedNumbers = listOf(4, 16, 48, 63, 76, 7, 23, 38, 52, 80, 9, 25, 56, 64, 83)
         val claim = Claim.FULL_HOUSE
         val tambola = Tambola()
 
-        val result = tambola.validateClaim(ticket, announcedNumbers, claim)
+        val result = tambola.validateClaim(tambolaTicket, announcedNumbers, claim)
 
         assertTrue(result)
     }
 
     @Test
     fun `check if late full house clam loses`() {
-        val ticket = listOf(
+        val tambolaTicket = TambolaTicket(
             listOf(4,16,-1,-1,48,-1,63,76,-1),
             listOf(7,-1,23,38,-1,52,-1,-1,80),
             listOf(9,-1,25,-1,-1,56,64,-1,83)
@@ -160,7 +161,7 @@ class ClaimValidationTest {
         val claim = Claim.FULL_HOUSE
         val tambola = Tambola()
 
-        val result = tambola.validateClaim(ticket, announcedNumbers, claim)
+        val result = tambola.validateClaim(tambolaTicket, announcedNumbers, claim)
 
         assertFalse(result)
     }

@@ -1,11 +1,12 @@
 package org.example.validator
 
 import org.example.Claim
+import org.example.TambolaTicket
 
 class BottomRowClaimValidator : ClaimValidator {
-    override fun validate(ticket: List<List<Int>>, announcedNumbers: List<Int>, claim: Claim): Boolean {
+    override fun validate(ticket: TambolaTicket, announcedNumbers: List<Int>, claim: Claim): Boolean {
         val row = mutableSetOf<Int>()
-        for(index in ticket[ticket.size -1]) {
+        for(index in ticket.bottomRow) {
             if(index != -1) {
                 row.add(index)
             }

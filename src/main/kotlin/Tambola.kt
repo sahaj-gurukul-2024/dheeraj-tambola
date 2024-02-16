@@ -8,7 +8,7 @@ class Tambola {
     private fun setClaimValidator(claimValidator: ClaimValidator) {
         this.claimValidator = claimValidator
     }
-    fun validateClaim(ticket: List<List<Int>>, announcedNumbers: List<Int>, claim: Claim): Boolean {
+    fun validateClaim(ticket: TambolaTicket, announcedNumbers: List<Int>, claim: Claim): Boolean {
 
         when(claim) {
             Claim.TOP_ROW -> setClaimValidator(TopRowClaimValidator())

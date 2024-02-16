@@ -1,17 +1,11 @@
 package org.example.validator
 
 import org.example.Claim
+import org.example.TambolaTicket
 
 class EarlyFiveClaimValidator: ClaimValidator {
-    override fun validate(ticket: List<List<Int>>, announcedNumbers: List<Int>, claim: Claim): Boolean {
-        val row = mutableSetOf<Int>()
-        for(firstIndex in ticket.indices) {
-            for(secondIndex in ticket[firstIndex].indices) {
-                if(ticket[firstIndex][secondIndex] != -1) {
-                    row.add(ticket[firstIndex][secondIndex])
-                }
-            }
-        }
+    override fun validate(ticket: TambolaTicket, announcedNumbers: List<Int>, claim: Claim): Boolean {
+        val row = ticket.getFullTicket()
         var result = false
         var itemsRemaining = 0
         for(index in announcedNumbers.indices) {
@@ -22,7 +16,6 @@ class EarlyFiveClaimValidator: ClaimValidator {
                 }
             }
         }
-
         return result
     }
 }
